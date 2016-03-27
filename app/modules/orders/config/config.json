@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "order",
+            "cache"			: "false",
+            "url"           : "/place-order",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/orders/views/orders.html"   	
+        		}
+      		}
+	     }
+	]
+}

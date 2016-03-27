@@ -1,0 +1,12 @@
+{
+	"defaultRoute" : {
+		"defaultPrivateState"   : "dashboard",
+        "defaultPublicState"   	: "login"
+	},
+	"urls":   {
+	    "development" : "http://192.168.3.61:8080/Restosource/",
+	    "production"  : "http://192.168.3.61:8080/Restosource/",
+	    "uat"         : "http://90.0.9.98:9000"
+    },
+	"version" : "0.0.0"
+}

@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "userprofile",
+            "cache"			: "false",
+            "url"           : "/userprofile",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/userProfile/views/userprofile.html"   	
+        		}
+      		}
+	     }
+	]
+}

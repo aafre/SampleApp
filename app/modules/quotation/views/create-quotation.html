@@ -1,0 +1,116 @@
+<div class="container-fluid navbar-collapse">
+	<div class="row ul-wrapper">	
+		<div ng-include="'app/modules/dashboard/views/_header.html'" ></div>
+	<div ng-controller="SubmitQuotationCtrl">
+	<div classs="row">
+		<div class="col-md-12 col-sm-12 tender-row quotation-row-style">
+	
+			<div class="quotation-text">
+				<span>Submit Quotation</span>		
+			</div>
+			<div class="pull-right">
+				<div class="image-upload image-upload-style">
+					 <label for="file-input">
+        				<img class="img-responsive pointer" src="images/clip4(1).png"/>
+   					</label>
+					<input id="file-input" type="file" file-model="myFile"/>
+  					<span class="text-font text-fld text-fld-style" ng-click="uploadFile()">Upload Quotation</span>
+				</div>
+			</div>
+			
+		</div>	
+	</div>
+	<div class="container">
+	 <div class="form-group form-group-style">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 no-padding">
+				<div class="col-md-6 col-sm-6 " >
+					<lable class="form-control tender-mid-nav" >Buyer Name<span class="side-colon"">:</span></lable>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj" >
+					<lable class="form-control tender-mid-nav">{{headers.userName}}</lable>
+				</div>
+				<div class="col-md-6 col-sm-6" >
+					<lable class="form-control tender-mid-nav">Tender No.<span class="side-colon">:</span></lable>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj" >
+					<lable class="form-control tender-mid-nav">{{headers.tenderId}}</lable>
+				</div>
+				
+			</div>
+			<div class="col-md-4 col-sm-4 no-padding exp-del-date" >
+				<div class="no-padding delierydate-width">
+					<lable class="form-control tender-mid-nav">Expected Delivery Date<span class="side-colon"">:</span></lable>
+				</div>
+				<div class="exp-date-style no-padding" >
+					<lable class="form-control tender-mid-nav delierydate-padding">{{headers.expectedDeliveryDate}}</lable>
+				</div>
+					
+			</div>
+			<div class="col-md-4 col-sm-4 no-padding">
+				
+				<div class="col-md-6 col-sm-6" >
+					<lable class="form-control tender-mid-nav">Establishment<span class="side-colon"">:</span></lable>
+				</div>
+				<div class="col-md-6 col-sm-6   field-btm-adj" >
+					<lable class="form-control tender-mid-nav">{{headers.userCompany}}</lable>
+				</div>
+				<div class="col-md-6 col-sm-6" >
+					<lable class="form-control tender-mid-nav">Cut-Off Date<span class="side-colon">:</span></lable>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj" >
+					<lable class="form-control tender-mid-nav">{{headers.toDate}}</lable>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fliud">
+	<div class="table-responsive quotation-table"  >
+		<table class="table quotation-table ">	
+			<tr class="tbl_header-stl">
+				<th class="field-item font-style">Item Name
+					<div class="div_img"><img class="sort-icons img-responsive pointer" src="images/sort27.png"/></div>
+				</th>
+				<th class="field-item font-style">Brand
+					<div class="div_img-asdend-desend"><img class="sort-icons img-responsive pointer" src="images/sort12(1).png"/></div>
+					<!-- <lable><img class="sort-icons img-responsive" src="images/ic_sort_desending16.png"/></lable>  icon changes when order change-->
+				</th>
+				<th class="field-item font-style">Qty<div class="div_img"><img class="sort-icons img-responsive pointer" src="images/sort27.png"/></div></th>
+				<th class="field-item font-style">Units</th>
+				<th class="field-item font-style">Description/Details</th>
+				<th class="field-item font-style">Supply Qty</th>
+				<th class="field-item font-style">Unit Price</th>
+				<th class="field-item font-style">Cost<div class="div_img"><img class="sort-icons img-responsive sort-icon-style pointer" src="images/sort27.png"/></div></th>
+				<th class="field-item font-style">Vendor's remarks</th>
+			</tr>
+			<tr ng-repeat="item in items">
+				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.productName}}</td>
+				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.productBrand}}</td>
+				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.quantity}}</td>
+				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.uom}}</td>
+				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.remarks}}</td>
+				<td align="center"><input class="quotation-input-field form-attr form-control input-style" type="text" ng-model ="items[$index].quantity" ng-change="calculateTotalCost($index,'quantity')"/></td>
+				<td align="center"><input class="quotation-input-field form-attr form-control input-style" type="text" ng-model ="items[$index].unitPrice" ng-change="calculateTotalCost($index,'price')"/></td>
+				<td class="total-cost tender-mid-nav text-font" align="left" colspan="2">{{item.totalPrice}}</td>
+<!-- 				<td align="center" class="tender-mid-nav text-font table-attr-field">{{item.qty}}</td> -->
+				<td align="center"><input class="quotation-input-field form-attr form-control input-style" type="text" ng-model ="items[$index].remark"/></td>
+			</tr>
+			<!-- <tr class="total-cost-wrapper">
+				<td class="total-cost tender-mid-nav text-font" align="left" colspan="8">Total Cost</td>
+				<td class="total-cost tender-mid-nav text-font" align="left" colspan="2">{{items[$index].totalPrice}}</td>
+			</tr> -->
+			<!-- <tr>
+				<td  colspan="5" align="left"><button class="hvr-sweep-to-top btn join-free-btn" ng-click="submit()">BACK</button> </td>
+				<td  colspan="5" align="right"><button class="hvr-sweep-to-top btn join-free-btn" ng-click="submit()">SUBMIT</button> </td>
+			</tr> -->
+		</table>
+		<div class="btn-wrap">
+			<button class="hvr-sweep-to-top btn join-free-btn">Back</button>
+			<button class="hvr-sweep-to-top btn join-free-btn submit-btn" ng-click="submit()">Submit</button>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>

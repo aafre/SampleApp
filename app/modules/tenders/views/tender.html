@@ -1,0 +1,116 @@
+<div ng-include="'app/modules/dashboard/views/_header.html'"></div>
+<div class="container-fluid"  ng-controller="tenderCtrl">
+	<!-- <div class="row"> -->
+		<div class="row tender-row">
+			<div class="tender-box">
+				<span>Create Tender</span>	
+			</div>
+			<div class="pull-right">
+				<div class="image-upload">
+			 		<label for="file-input">
+    					<img class="add-icon img-responsive" id="file-input" data-toggle="modal" data-target="#upload" src="images/ic_attach_24.png"/>
+    					<span class="header-text">Upload File</span>
+					</label>
+				</div>
+				<div class="image-upload">
+					<span><img class="add-icon img-responsive" src="images/ic_add1_24.png"/></span>
+					<span class="header-text">Add from favorites</span>
+				</div>
+			</div>
+		</div>	
+<!-- 	</div>  -->
+	<div class="row tender_topadj">
+			<div class="tbl_container">
+				 <div class="form-group">	
+						<div class="col-md-4 col-sm-4">
+							<div class="col-md-6 col-sm-6 ">
+								<label class="form-control tender-mid-nav text-font" >Name <span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-6 col-sm-6  field-btm-adj ">
+								<label class="form-control tender-mid-nav text-font">{{userBO.firstName}}</label>
+							</div>
+							<div class="col-md-6 col-sm-6 ">
+								<label class="form-control tender-mid-nav text-font">Mobile<span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-6 col-sm-6  field-btm-adj ">
+								<label class="form-control tender-mid-nav text-font">{{userBO.userContactNo}}</label>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<label class="form-control tender-mid-nav text-font">Cut-Of Date<span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-6 col-sm-6  field-btm-adj">
+								<label class="form-control tender-mid-nav"><input type="text" class="cal_cut_date" ng-model="dateValue" id="datepicker" uib-datepicker-popup class="form-control">
+								<img class="img-responsive" src="images/calendar.png" width="24px" height="24px"/></label>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 verticle-algn">
+							<div class="col-md-7 col-sm-7">
+								<label class="form-control tender-mid-nav text-font">Tender Name <span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-5 col-sm-5  field-btm-adj name-pad-adj">
+								<input type="text" ng-model="tenderName" class="form-control tender-inputs text-font Tender-inpt" />
+							</div>	
+						</div>
+						<div class="col-md-5 col-sm-5">
+							<div class="col-md-6 col-sm-6  name-pad-adj">
+								<label class="form-control tender-mid-nav text-font">Establishment<span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-6 col-sm-6  field-btm-adj ">
+								<label class="form-control tender-mid-nav text-font">{{userBO.userCompany}}</label>
+							</div>
+							<div class="col-md-6 col-sm-6  name-pad-adj">
+								<label class="form-control tender-mid-nav text-font">Expected Delivery Date	<span class="side-colon">:</span></label>
+							</div>
+							<div class="col-md-6 col-sm-6  field-btm-adj">
+								<label class="form-control tender-mid-nav"><input type="text" class="cal_Exp_Date" ng-model="expectedDateVlaue" id="expectedDate" uib-datepicker-popup class="form-control">
+								<img class="img-responsive" src="images/calendar.png" width="24px" height="24px"/></label>
+							</div>
+						</div>
+					</div>
+			</div>
+	</div>
+	<div class="row tender_topadj">
+		<div class="tbl_container">	
+			<add-product favourites="favourites" enddate="endDate"></add-product>
+		</div>		
+	</div>
+	<div class="row tbl_container">
+		<div class="pull-right">
+			<button class="hvr-sweep-to-top btn reg-btn-style submit-adj" ng-click="submit()">Submit</button> 
+		</div>	
+	</div>
+<div class="modal fade" id="upload" role="dialog" aria-hidden="true">
+	<div class="modal-dialog parent-dialog">
+		<div class="modal-content">
+			<!-- <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<div align="center">
+					<span class="chef-title"><i class="sub-title-style">Chef</i>ezy</span>							
+				</div>
+			</div> -->
+				<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<form name="myForm" enctype="multipart/form-data">
+					      <!-- <br>Photo: -->
+					      <input type="file" ngf-select ng-model="excelFile" name="file"    
+					              ngf-max-size="5MB" required>
+					      <i ng-show="myForm.file.$error.required">*required</i><br>
+					      <i ng-show="myForm.file.$error.maxSize">File too large 
+					          {{excelFile.size / 5000000|number:1}}MB: max 5M</i>
+					      <button ng-click="excelFile = null" ng-show="excelFile">Remove</button> <img ng-show="myForm.file.$valid" ngf-thumbnail="excelFile" class="thumb"> 
+					  <!--     <br> -->
+					
+						<input type="button" ng-click="uploadExcel(excelFile)" value="Upload!" />
+					      <span class="progress" ng-show="excelFile.progress >= 0">
+					        <div style="width:{{excelFile.progress}}%" ng-bind="excelFile.progress + '%'"></div>
+					      </span>
+					      <span ng-show="excelFile.result">Upload Successful</span>
+					      <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+					   
+  					</form>
+				
+				</div>
+		</div>
+	</div>
+</div>
+</div>

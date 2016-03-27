@@ -1,0 +1,13 @@
+	<div class="container-fluid"  ng-controller="OrderHeaderCtrl">	
+		<div ng-include="'app/modules/dashboard/views/_header.html'" ></div>
+		<div class="row tender-row">
+			<div class="tender-box">
+				<span>Track & Manage Orders</span>	
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+		   			 <div ui-grid="gridOptions"></div>
+		   </div>
+		</div>
+	</div>

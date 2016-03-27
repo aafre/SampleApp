@@ -1,0 +1,407 @@
+	<div ng-controller="RegisterCtrl">
+			<ul class="top-nav-right pull-right" > 
+	<li> <span class="msg-stl" >Are you a member of Chefezy ?</span> </li>
+	<li> <a class="register-stl" ui-sref="register">Register</a></li>
+	<li> <span class="verticle-orbar"></span> </li>
+	<li> <span class="login-stl">
+	<div ng-include="'app/modules/login/views/login.html'"></div>
+</ul>
+			<span class="clearfix"></span>	
+ 		<div class="row wrapper-right">	
+			<nav role="navigation" class="navbar navbar-default top-nav-bar">
+				 <div class="navbar-header">
+			       <button data-target="#navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+				     </button>
+			       <div class="btn-group">    
+			        		<a class="navbar-brand" href="#">
+			        			<!-- <span class="sub-title-style stl-chefezy"><i>Chef</i></span><span class="stl-chefezy sty-ezy">ezy</span> -->
+			        			<span class="sub-title-style stl-chefezy"><i>Chef</i></span><span class="stl-chefezy sty-ezy">ezy</span> 	 
+				            </a>
+			      </div>  
+   			 	</div>
+			   <div id="navbar-collapse-1" class="collapse navbar-collapse navbar-right right-marging-adj">
+			      	<ul class="nav navbar-nav nav-vert-algn top-right-nav">
+				        <li class="active"><a href="#">Features</a></li>
+				        <li><a href="#">Testimonials</a></li>
+				        <li><a href="#">Pricing</a></li>
+				        <li><a href="#">About Us</a></li>
+				        <li><a href="#">Help</a></li>
+      				</ul>
+		    	</div>
+			</nav> 
+
+		</div>	
+
+	
+		<div class="register-wrapper">
+			<div  class="container">
+				<span class="register">Register</span>
+			</div> 
+		</div>
+		
+		<div class="container">
+			<div class="row">
+					<div class="col-md-offset-2 col-md-10 col-sm-10 col-xs-10 top-radio-bar">
+						<div ng-show="showClass == 0">
+							<span class="circle fst-circle" ng-class="stepOneClass ? 'circle-bgimg ':'circle-bgcolor'" >
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle ">
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle">	
+							</span>	
+						</div>	
+						<div ng-show="showClass==1">
+							<span class="circle fst-circle circle-bgimg" >
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle" ng-class="stepTwoClass ? 'circle-bgimg ':'circle-bgcolor'">
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle">	
+							</span>	
+						</div>
+						<div ng-show="showClass==2">
+							<span class="circle fst-circle circle-bgimg" >
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle circle-bgimg" >
+							</span>
+							<hr class="circle-connect" />
+							<span class="circle fst-circle" ng-class="stepThreeClass ? 'circle-bgimg ':'circle-bgcolor'">	
+							</span>	
+						</div>
+					</div>	
+			 </div>
+			<form role="form" class="form-vertical form-style"  name="form">
+			<div class="buyerseller-wrapper">
+				<div class=buyer-wrapper>
+					 <input type="radio" class="radione" id="radioOne" ng-model="userBO.userRole" value="buyer" name="radio" ng-disabled="step>1" required/>
+					 <label class="buyer-lbl-adj"  for="radioOne"> 
+					 	<div class="buyer-div"></div><span class="buyer_seler_sty">Buyer</span>
+					 </label>
+				</div>
+				<div class="seller-wrapper">
+					<input type="radio" class="radiotwo" id="radiotwo" ng-model="userBO.userRole" value="seller" name="radio" ng-disabled="step>1" required />
+					<label class="seller-lbl-adj" for="radiotwo">
+					<div class="seler-div"></div><span class="buyer_seler_sty">Seller</span>
+				</div>
+			</div>
+				<fieldset ng-show="step == 1">
+		       		<!--  <legend>Step one</legend> -->
+		        	<div class="form-group">
+		        		<div class="row">
+		        			<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Name
+		        						<span ng-show="form.name.$error.required" class="alert-msg">*</span>
+		        					</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<input class="form-control input-style" type="text" name="name" ng-model="userBO.firstName" required />
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Email
+		        						<span ng-show="form.email.$error.required" class="alert-msg">*</span>
+		        					</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<input class="form-control input-style" type="email" ng-model="userBO.eMailId" ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i" name="email" required>
+		        					  <span class="error" ng-show="form.email.$error.email">Not valid email!</span>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Country
+		        					<span ng-show="form.country.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<div class="parent-select">
+		        						<select class="form-control input-style selectpicker icon-hide" ng-change="clearData()" ng-model="selectedCountry" ng-options="country as country.countryName for country in listOfCountries" name="country" required ></select>
+									</div>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Phone Number
+		        					<span ng-show="form.phone.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+									<input class="form-control country-code input-style" type="text" ng-model="selectedCountry.countryCode" readonly>
+		        					<input class="form-control input-style phone-no-styl" type="number" ng-pattern="onlyNumbers" maxlength="11" ng-model="userBO.userContactNo" 
+		        					name="phone" required />
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+									<label ng-if="selectedCountry.countryName == 'India'" class="form-attr form-control frm-cntrl">VAT Number <span ng-show="form.gst.$error.required" class="alert-msg">*</span></label>
+									<label ng-if="selectedCountry.countryName != 'India'" class="form-attr form-control frm-cntrl">GST Number <span ng-show="form.gst.$error.required" class="alert-msg">*</span></label>
+		        					
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<p ng-if="selectedCountry.countryName == 'India'">
+		        					<input class="form-control input-style" ng-model="userBO.VAT" type="number" pattern="[0-9]*"  name="gst" required /> </p>
+		        					<p ng-if="selectedCountry.countryName != 'India'">
+		        					<input class="form-control input-style" ng-model="userBO.GST" type="number" pattern="[0-9]*"  name="gst" required /> </p>
+		        				</div>
+		        				
+		        			</div>
+		        					
+		        			<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Name Of Establishment
+		        					<span ng-show="form.noe.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<input class="form-control input-style" type="text" ng-model="userBO.userCompany" name="noe" required />
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Pin
+		        					<span ng-show="form.pincode.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<input class="form-control input-style" type="text" ng-pattern="onlyNumbers" ng-model="userBO.userPINCode" name="pincode" required />
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">City
+		        					<span ng-show="form.city.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+									<div class="parent-select">			        				
+		        						<!-- <select class="form-control input-style selectpicker icon-hide" >
+										</select> -->
+										<select class="form-control input-style selectpicker icon-hide" ng-model="selectedCity" ng-options="city as city for city in cities" name="city" required />
+										</select>
+									</div>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Address
+		        					<span ng-show="form.address.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<textarea rows="2" class="form-control input-style" ng-model="userBO.userAddress" name="address" required ></textarea>
+		        				</div>
+		        			</div>
+		        		</div>
+		        		<div class="btn-wrapper">
+		        			<button class="hvr-sweep-to-top btn reg-btn-style" ng-click="submit('next')" ng-disabled="form.email.$error.email || form.name.$error.required || form.email.$error.required || form.country.$error.required || form.address.$error.required || form.gts.$error.required || form.noe.$error.required || form.pin.$error.required || form.phone.$error.required || form.radio.$error.required" >Send OTP</button>
+		        		</div>
+		        	</div>
+		       		
+				</fieldset>
+		    <!-- <form role="form" class="form-vertical form-style" ng-submit="submit('next')" name="form"> -->
+		   		<fieldset ng-show="step == 2">
+		       <!--  <legend>Step two</legend> -->
+		        <div class="form-group">
+		        	 <div class="row">
+		        			<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">OTP
+		        					<span ng-show="form.otp.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					 <input type="text" class="form-control input-style" ng-model="otp" name="otp" required />	
+		        				</div>
+		    			
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Password
+		        					<span ng-show="form.passwd.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					 <input type="password" class="form-control input-style" minlength="8" ng-model="userBO.userPassword" name="passwd" required />
+		        				</div>
+		        				<span ng-show="form.passwd.$error.minlength" class="error">Min 8 characters please!</span>
+		    				</div>
+		    				
+		    				<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-12 col-sm-12 field-btm-adj">	
+		        					<button class="hvr-sweep-to-top btn reset-btn">Resend OTP</button>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-attr form-control frm-cntrl">Confirm Password
+		        					 <span ng-show="form.confirmPasswd.$error.required" class="alert-msg">*</span></label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					 <input type="password" class="form-control input-style" ng-model="confirmPassword" name="confirmPasswd" required />
+		        				</div>	
+		        				<div class="col-md-12 col-sm-12">
+		        					<div ng-if="form.confirmPasswd.$dirty && !form.confirmPasswd.$error.required ">
+		        					<span class="form-attr" ng-hide="userBO.userPassword == confirmPassword">Passwords do not match!</span>
+		        					</div>
+		        					<div ng-if="form.confirmPasswd.$error.required && form.confirmPasswd.$dirty ">
+		        						<span class="form-attr" ng-hide="userBO.userPassword == confirmPassword">Please Confirm your password!</span>
+		        					</div>
+		        				</div>
+		    				</div>
+		        	 	</div>
+		        	 	<div class="row">
+		        	 		<div class="col-md-8 col-sm-8 term-cdtn-checkbox"> 
+		        	 			<div class="checkbox">
+		        	 				<input type="checkbox" ng-model="tnc"  ng-disabled="step>2"><a class="tc-style" > I Accept the Terms & Conditions</a>
+		        	 			</div>
+		        	 		</div>
+     	 				</div>
+					 <div class="btn-wrapper-register">
+		        			<button class="hvr-sweep-to-top btn reg-btn-style" ng-click="nextStep()" ng-disabled="form.passwd.$error.minlength || form.otp.$error.required || form.passwd.$error.required || !tnc || form.confirmPasswd.$error.required"
+		        			>Register</button>
+		        	 </div>
+		   	     </div>	
+		    </fieldset>
+		    <!-- </form> -->
+		    
+		   <!--  <form role="form" class="form-vertical form-style" ng-submit="submit('next')" name="form"> -->
+		    <fieldset ng-show="step == 3">
+		      <div class="form-group">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+					<!-------- Buyer table -----------> 
+						<div class="table-responsive">
+							<table class="table resp-tbl-styl">
+	       <colgroup class="slim"></colgroup>
+	       <colgroup class="slim"></colgroup>
+	       <colgroup class="slim"></colgroup>
+	       <colgroup class="slim"></colgroup>
+							    <thead>
+							      <tr>
+							        <th></th>
+							        <th class="styTrial tbl-hed-styl">Trial</th>
+							        <th class="styPremium tbl-hed-styl">Premium</th>
+							        <th class="styPrestige tbl-hed-styl">Prestige</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							     <tr class="row-bgcolor">
+							        <td>Price</td>
+							        <td>Free</td>
+							        <td>300 INR/month</td>
+							        <td>500 INR/month</td>
+							      </tr>
+							      <tr>
+							        <td>Phone Supprot</td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-cross"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr class="row-bgcolor">
+							        <td>Mail Supprot</td>
+							        <td><span class="bg-icon-tick"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr>
+							        <td>Purchase Order</td>
+							        <td class="SND-row-bgcolor"> ... </td>
+							        <td class="SND-row-bgcolor">50/month</td>
+							        <td class="SND-row-bgcolor">80/month</td>
+							      </tr>
+							      <tr  class="row-bgcolor">
+							        <td>Create Tender</td>
+							        <td>2 Tenders/month</td>
+							        <td>10 Tenders/month</td>
+							        <td>20 Tenders/month</td>
+							      </tr>
+							        <tr>
+							        <td>View Offer</td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr class="row-bgcolor">
+							        <td>Avail Offer</td>
+							        <td><span class="bg-icon-cross"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr>
+							        <td>Validity</td>
+							        <td class="SND-row-bgcolor">2 months</td>
+							        <td class="SND-row-bgcolor">3 months</td>
+							        <td class="SND-row-bgcolor">3 months</td>
+							      </tr>  
+							    </tbody>
+							  </table>
+						</div>
+					</div>
+				</div>	
+				
+				<!-- END of Buyer Table -->
+				<!-- Seller table --------->
+				
+			<!-- 	<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="table-responsive">
+							<table class="table resp-tbl-styl">
+							    <thead>
+							      <tr>
+							        <th></th>
+							        <th class="styTrial tbl-hed-styl">Trial</th>
+							        <th class="styPremium tbl-hed-styl">Premium</th>
+							        <th class="styPrestige tbl-hed-styl">Prestige</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							     <tr class="row-bgcolor">
+							        <td>Price</td>
+							        <td>Free</td>
+							        <td>300 INR/month</td>
+							        <td>500 INR/month</td>
+							      </tr>
+							      <tr>
+							        <td>Phone Supprot</td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-cross"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							        <td class="SND-row-bgcolor"><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr class="row-bgcolor">
+							        <td>Mail Supprot</td>
+							        <td><span class="bg-icon-tick"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							        <td><span class="bg-icon-tick"></span></td>
+							      </tr>
+							      <tr>
+							        <td>Receive Orders</td>
+							        <td class="SND-row-bgcolor"> ... </td>
+							        <td class="SND-row-bgcolor">50/month</td>
+							        <td class="SND-row-bgcolor">80/month</td>
+							      </tr>
+							      <tr class="row-bgcolor">
+							        <td>Create Quoatations</td>
+							        <td>2 Tenders/month</td>
+							        <td>10 Tenders/month</td>
+							        <td>20 Tenders/month</td>
+							      </tr>
+							       <tr>
+							        <td>Launch Campaigns</td>
+							        <td class="SND-row-bgcolor">2 months</td>
+							        <td class="SND-row-bgcolor">10 months</td>
+							        <td class="SND-row-bgcolor">10 months</td>
+							      </tr> 
+							      <tr class="row-bgcolor">
+							        <td>Validity</td>
+							        <td>2 months</td>
+							        <td>3 months</td>
+							        <td>3 months</td>
+							      </tr>  
+							    </tbody>
+							  </table>
+						</div>
+					</div>
+				</div>	 -->
+				<!-- END of seller Table -->
+		        
+		        <div class="row">
+		        	 <div class="col-md-6 col-sm-6 checkbox">
+		        	 		<input type="checkbox" ng-model="tnc"><a class="tc-style"> I Accept the Terms & Conditions</a>
+		        	 </div>
+		        	 <div class="col-md-6 col-sm-6">
+		        	 	<div align="right"> * &nbsp;Phone support 7a.m to 9p.m.</div>
+		        	 </div>
+     	 		</div>
+		       		 <div class="btn-wrapper-register">
+		        			<button class="hvr-sweep-to-top btn proced-btn" ng-click="submit('next')">Proceed to payment</button>
+		       		 </div>
+		      </div>
+		    </fieldset>
+		    	
+			</form>
+		</div>
+	</div>

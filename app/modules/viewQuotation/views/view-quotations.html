@@ -1,0 +1,12 @@
+<div ng-controller="viewQuotationCtrl">
+	Buyer Name: <br/>
+	Expected Delivery Date: <br/>
+	Establishment: <br/>
+	Tender No. <br/>
+	Quotation No. <br/>
+	Cut-off Date: <br/>
+	
+	 <input ng-model="searchText" ng-change="refreshData()" placeholder="Search..."
+   ui-grid-selection ui-grid-resize-columns class="gridTable">
+   <div ui-grid="gridOptions"></div>
+</div>

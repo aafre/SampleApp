@@ -1,0 +1,59 @@
+<div ng-include="'app/modules/dashboard/views/_header.html'" ></div>
+<div ng-controller="DetailsCtrl">
+ <div class="form-group">
+		<div class="row row-adj-top">
+			<div class="col-md-4 col-sm-4">
+				<div class="col-md-6 col-sm-6 ">
+					<label class="form-control tender-mid-nav text-font" >Name <span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj ">
+					<label class="form-control tender-mid-nav text-font">{{header.userName}}</label>
+				</div>
+				<div class="col-md-6 col-sm-6 ">
+					<label class="form-control tender-mid-nav text-font">Mobile<span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj ">
+					<label class="form-control tender-mid-nav text-font">{{header.userContactNo}}</label>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<label class="form-control tender-mid-nav text-font">Cut-Of Date<span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj">
+					<label class="form-control tender-mid-nav text-font">{{header.toDate}}</label>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 verticle-algn">
+				<div class="col-md-7 col-sm-7 ">
+					<label class="form-control tender-mid-nav text-font">Tender Name <span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-5 col-sm-5  field-btm-adj name-pad-adj">
+					<label class="form-control tender-mid-nav text-font">{{header.tenderName}}</label>
+				</div>	
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="col-md-6 col-sm-6  name-pad-adj">
+					<label class="form-control tender-mid-nav text-font">Establishment<span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj ">
+					<label class="form-control tender-mid-nav text-font">{{header.userCompany}}</label>
+				</div>
+				
+				<div class="col-md-6 col-sm-6  name-pad-adj">
+					<label class="form-control tender-mid-nav text-font">Expected Delivery Date	<span class="side-colon">:</span></label>
+				</div>
+				<div class="col-md-6 col-sm-6  field-btm-adj">
+					<label class="form-control tender-mid-nav text-font">{{header.expectedDeliveryDate}}</label>
+				</div>
+			</div>
+	
+	</div>
+	</div>
+   <div ui-grid="gridOptions"></div>
+   <button ng-click="goTo('viewtenders')">Back</button>
+   <div ng-show="userRole=='buyer'">
+   		<button ng-click="goToQuotations('viewquotation')">View Quotation</button>
+   </div>
+   <div ng-show="userRole=='seller'">
+   		<button ng-click="goTo('quotation')">Make Quotation</button>
+   </div>
+</div>

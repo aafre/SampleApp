@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "viewQ",
+            "cache"			: "false",
+            "url"           : "/view-quotations",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/viewQuotation/views/view-quotations.html"   	
+        		}
+      		}
+	     }
+	]
+}

@@ -1,0 +1,76 @@
+
+<div class="table-responsive">
+	<table class="table tender-db">	
+		<tr>
+			<th class="txt_left_aln" width="20%">
+				<span class="header-text">Category</span>
+			<!-- 	<div class="div_img">
+					<img class="sort-icons img-responsive" src="images/sort27.png"/>
+				</div> -->
+			</th>
+			<th class="txt_left_aln" width="20%">
+				<span class="header-text">Item Name</span>
+				<!-- <div class="div_img"><img class="sort-icons img-responsive" src="images/ic_sort_16.png"/>
+					<img class="sort-icons img-responsive" src="images/sort27.png"/>	
+				</div> -->
+			</th>
+			<th width="20%">
+				<span class="header-text">Brand</span>
+				<!-- <div class="div_img-asdend-desend">
+					<img class="sort-icons img-responsive" src="images/ic_sort_assending16.png"/>
+				</div> -->
+				<!-- <lable><img class="sort-icons img-responsive" src="images/ic_sort_desending16.png"/></lable>  icon changes when order change-->
+			</th>
+			<th width="5%"><span class="header-text">Qty</span></th>
+			<th width="5%"><span class="header-text">Units</span></th>
+			<th width="27%"><span class="header-text">Description/Details</span></th>
+			<th width="3%"> </th>
+		</tr>
+		<tr ng-repeat="fav in favourites">
+			<td>
+				<div class="parent-sel-tender">	
+<!-- 				ng-init="selectedCategory=categoryList[0]" -->
+				 	<select class="form-control tender-inputs input-style-tender selct-wdth icon-hide-tender"  ng-options="category for category in categoryList" ng-model="selectedCategory" ng-change="onSelectChange()">
+					</select>
+				</div>
+			</td>
+			<td> 
+				<div class="div-angucomplt">
+					<angucomplete id="ex1" class="form-control select-div-angucomplt" placeholder="Search Items" pause="100" selectedobject="fav.name" 
+							localdata=products searchfields="productName" titlefield="productName" minlength="1" 
+							matchclass="highlight" />
+				</div> 
+			</td>
+			<td align="center">
+				<input placeholder="Brand" class="form-control tender-inputs db_txtaln" type="text" ng-model="fav.productBrand" name="brand">
+			</td>
+			<td align="center">
+				<input placeholder="Quantity" class="form-control tender-inputs txt-area-stl" type="text" ng-model="fav.quantity" name="quantity">
+			</td>
+			<td align="center">
+				<input placeholder="Uom" type="text" ng-model="fav.uom" class="form-control tender-inputs txt-area-stl">
+			</td>
+			<td>
+				<input placeholder="Description" class="form-control tender-inputs db_txtaln_dscp" type="text" ng-model="fav.remarks" name="remarks">
+			</td>
+<!-- 			<td width="20%"><textarea rows="1" cols="50" class="form-control tender-inputs  txt-area-stl"></textarea></td> -->
+			<td align="center">
+			  <div class="remove-topadj">
+					<label for="remove_id">
+        				<img class="img-responsive add-prod-icon" id="remove_id"  ng-click="delProd($index)" src="images/remove_24.png"/>
+   					</label>
+   				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="prod-add-btn">
+				<label for="product-add">
+        			<img class="img-responsive add-icon" src="images/ic_add1_24.png"/>
+        			<h5 class="add-prd">Add Items</h5>
+   				</label>
+				<input id="product-add" type="button" ng-click="addProd()">
+			</td>
+			<!-- <td colspan="6" align="right"><button class="hvr-sweep-to-top btn join-free-btn" ng-click="submit()">SUBMIT</button> </td> -->
+		</tr>
+	</table>
+</div>

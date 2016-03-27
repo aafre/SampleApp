@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "favourites",
+            "cache"			: "false",
+            "url"           : "/myfavourites",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/favourites/views/favourite.html"   	
+        		}
+      		}
+	     }
+	]
+}

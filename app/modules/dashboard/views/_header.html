@@ -1,0 +1,72 @@
+<div ng-controller="DashboardCtrl">
+	<ul class="top-nav-right pull-right" > 
+		<li> <label class="header-text">Hi {{userName}}</label></li>
+		<li class="profile-icon"><img src="./images/profile_pic.jpg" class="img-circle" alt="Profile pic" width="35" height="35">
+			<div class="arrow" style="left: 50%;"></div>
+			<ul class="login-dropdown brder-tp">
+				<li><a ui-sref="userprofile">My Profile</a></li>
+				<li><a ui-sref="later">Language</a></li>
+				<li><a ui-sref="later">Terms & Conditions</a></li>
+				<li><a ui-sref="later">Help</a></li>
+				<li class="btm_border"><a href ng-click="logout()">Log Out</a></li>
+			</ul>				
+		</li>
+	</ul>
+	<span class="clearfix"></span>		
+				<nav role="navigation" class="navbar navbar-default top-nav-bar">
+				 <div class="navbar-header navbar-header-style">
+			       <button data-target="#navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+				     </button>
+				     <div class="quotation-logo-wrapper"><!--  class="quotation-logo-wrapper" -->    
+			      		<img src="./images/Chefezy_tag.jpg" class="chefezy-logo img-responsive" alt="Profile pic">
+			        	<!-- <a class="navbar-brand chef-name-hgt" href="#"><span class="sub-title-style stl-chefezy">Chef</span><span class="stl-chefezy">ezy</span> 
+				           <p class="subtitle"> "Best deals always" </p></a> -->
+			    	  </div>  
+			     <!--  <form role="search" class="navbar-form navbar-right srch-tab search-style">
+			        <div class="form-group serch-form-style">
+			        	
+				          <button class="btn btn-default serch-tab btn-border" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				          <input type="text" placeholder="Search by products brands & Vendors" class="form-control serch-tab inpt-btm input-group search-input-style"> 
+			        </div>
+				  </form>  -->
+   			 	</div>
+	<!-- <div class="row ul-wrapper">	
+		<span class="clearfix"></span>		
+		<nav role="navigation" class="navbar navbar-default top-nav-bar">
+			<div class="navbar-header">
+	        	<button data-target="#navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			    </button>
+			    <div class="btn-group">    
+					<a class="navbar-brand chef-name-hgt" href="#">
+						<span class="sub-title-style stl-chefezy"><i>Chef</i></span><span class="stl-chefezy sty-ezy">ezy</span> 
+				   		<p class="subtitle"><q>Best deals always</q></p>
+					</a>
+	      		</div>  
+ 			</div> -->
+	    	<div id="navbar-collapse-1" class="collapse navbar-collapse navbar-right right-marging-adj profile-navbar-right">
+	      		<ul class="nav navbar-nav top-right-nav" ng-if="userRole == 'buyer'">
+		        	<li class="active li_wd4"><a ui-sref="tenders" class="requirement">Requirement <br/> List</a></li>
+					<li class="li_wd4"><a ui-sref="favourites">Favourites <br/> List</a></li>
+					<li class="li_wd4"><a ui-sref="viewtenders" class="manage-req" >Manage Requirements</a></li>
+					<li class="li_wd3"><a ui-sref="vieworders" class="track-manage">Track and Manage</a></li> 
+					<li class="li_wd5"><a ui-sref="offers" class="offer">Offers</a></li>
+					<li class="li_wd5"><a ui-sref="vendors" class="vendor">Vendors</a></li>
+    			</ul>
+    			<ul class="nav navbar-nav top-right-nav" ng-if="userRole == 'seller'">
+		        	<li class="active li_wd4"><a ui-sref="tenders">Upload Offers</a></li>
+					<li class="li_wd4"><a ui-sref="viewtenders">View new Tenders</a></li>
+					<li class="li_wd4"><a ui-sref="orders">Manage Orders</a></li>
+					<li class="li_wd4"><a ui-sref="viewOffers">View My Offers</a></li> 
+					<li class="li_wd4"><a ui-sref="invite">Invite Buyers</a></li>
+				</ul>
+	    	</div>
+		</nav> 
+	</div>

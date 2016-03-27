@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "register",
+            "cache"			: "false",
+            "url"           : "/register",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/register/views/register.html"   	
+        		}
+      		}
+	     }
+	]
+}

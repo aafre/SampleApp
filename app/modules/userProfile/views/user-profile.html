@@ -1,0 +1,195 @@
+	<div ng-include="'app/modules/dashboard/views/_header.html'" ></div>
+<div class="container-fluid navbar-collapse">
+	</div>
+	<div  ng-controller="ProfileCtrl">
+	<div classs="row">
+		<div class="col-md-12 col-sm-12 tender-row quotation-row-style">
+		<div class="container">
+			<div class="tender-box profile-row-style">
+				<span class="profile-pic"></span>
+				<div class="user-details">
+					<span class="username">{{user.firstName}}</span>
+					<span class="user-email">{{user.eMailId}}</span>
+					<!-- <span class="phn">+91-123456789</span> -->
+				</div>		
+			</div>
+			<div class="pull-right">
+				<div class="edit-style">
+					 <div ng-show="edit">
+						 <button class="edit-btn" ng-click="editProfile()"><label class="editgreen-pen pointer"></label></button>
+					 </div>
+					 <div ng-hide="edit">
+						 <button class="edit-btn" ng-click="editProfile()"><label class="edit-img pointer"></label></button>
+					 </div>
+        				
+   						
+   					<!-- <div  class="edit-img">
+						<button ng-click="editProfile()">Edit</button>
+					</div> -->
+					
+				</div>
+			</div>
+			</div>
+		</div>	
+	</div>
+	
+				<div class="container">
+				
+   					<div class="form-group">
+		        		<div class="row">
+		        			<div class="col-md-6 col-sm-6 field-alignmnet">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Country</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font">{{user.userCountry}}</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Office Contact</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font">
+		        						<div ng-repeat="country in listOfCountries">
+											<input class="form-control input-style" ng-if="user.userCountry == country.countryName" type="text" ng-model="country.countryCode"  readonly/>
+										</div>
+										<div ng-show="!edit" class="profile-text-font">{{user.userContactNo}}</div>
+										<div ng-show="edit">
+												<input class="form-attr form-control input-style business-texbox office-contact" type="text" ng-model="user.userContactNo" ng-patttern="/^\d+$/" maxlength="10"  required="required"/>
+										</div>
+									</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Type Of User</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<div ng-if="user.userRole == 'buyer'">
+			        					<label class="form-attr form-control tender-mid-nav profile-text-font">Buyer</label>
+		        					</div>
+									<div ng-if="user.userRole == 'seller'">
+										<label class="form-attr form-control tender-mid-nav profile-text-font">Seller</label>
+									</div>		        					
+		        				</div>
+		        			</div>
+		        			
+		        			
+		        			<div class="col-md-6 col-sm-6 field-alignmnet">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">City</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font">{{user.userCity}}</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Name Of Establishment</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font">{{user.userCompany}}</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Package</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font">{{user.userPackage}}</label>
+		        				</div>
+		        			</div>
+		        		</div>
+		        		<!-- <div class="btn-wrapper">
+		        			<button class="hvr-sweep-to-top btn reg-btn-style" ng-click="submit('next')">Send OTP</button>
+		        		</div> -->
+		        	</div>
+		        	
+		        	
+		        	
+		        	<div class="form-group">
+		        		<div class="row">
+		        			<div class="col-md-12 col-sm-12">
+		        				<label class="form-control form-attr-head">Business Verification Details</label>
+		        			</div>
+		        			<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-5 col-sm-5">
+		        					<label class="form-control form-attr-value">Business website</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-control tender-mid-nav profile-text-font ">
+		        						<div ng-show="!edit">{{user.userWebsite}}</div>
+										<div ng-show="edit">
+											<input class="form-attr form-control input-style business-texbox" type="text" ng-model="user.userWebsite" />
+										</div>
+									</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5 field-align">
+		        					<label class="form-control form-attr-value">Address</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj field-align">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font"><div ng-show="!edit">{{user.userAddress}}</div>
+										<div ng-show="edit">
+											<textarea  class="profile-textarea form-control input-style business-texbox" ng-model="user.userAddress" rows="2" cols="25" maxlength="200"></textarea>
+										</div>
+									</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5 field-space">
+		        					<label class="form-control form-attr-value">Award and Certification</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj field-space">
+		        					<label class="form-control tender-mid-nav profile-text-font">
+			        					<div ng-show="!edit">{{user.awardsAndCertifications}}</div>
+										<div ng-show="edit">
+											<input class="form-control input-style business-texbox" type="text" ng-model="user.awardsAndCertifications" /></td>
+										</div>
+									</label>
+		        				</div>
+		        			</div>
+		        			
+		        			
+		        			<div class="col-md-6 col-sm-6">
+		        				<div class="col-md-5 col-sm-5 ">
+		        					<label class="form-control form-attr-value">No Of Employees</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font"><div ng-show="!edit">{{user.noOfEmployees}}</div>
+							<div ng-show="edit">
+								<input class="form-control input-style business-texbox" type="text" ng-model="user.noOfEmployees" />
+							</div></label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5 field-align">
+		        					<label class="form-control form-attr-value">GST number</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj field-align">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font"><div ng-show="!edit">{{user.gst}}</div>
+										<div ng-show="edit">
+											<input class="form-control input-style business-texbox" type="text" ng-model="user.gst" />
+										</div>
+									</label>
+		        				</div>
+		        				<div class="col-md-5 col-sm-5 field-space">
+		        					<label class="form-control form-attr-value">Postal Code</label>
+		        				</div>
+		        				<div class="col-md-7 col-sm-7 field-btm-adj field-space">
+		        					<label class="form-attr form-control tender-mid-nav profile-text-font"><div ng-show="!edit">{{user.userPINCode}}</div>
+										<div ng-show="edit">
+											<input class="form-control input-style business-texbox" type="text" ng-model="user.userPINCode" ng-patttern="/^\d+$/" />
+										</div>
+									</label>
+		        				</div>
+		        			</div>
+		        		</div>
+		        		<div ng-show="!edit" class="reset-psswrd">
+		        		
+			        			<button class="hvr-sweep-to-top btn join-free-btn" ng-click="resetPassword()">Reset Password</button>
+			        	</div>
+		        		<div ng-show="edit">
+		        			<!-- <div class="cancel-btn">
+			        			<button ng-click="cancel()" class="hvr-sweep-to-top btn join-free-btn" ng-click="cancel()>Cancel</button>
+			        		</div>
+			        		
+			        		<div class="update-btn">
+			        			<button onsubmit="update()" class="hvr-sweep-to-top btn join-free-btn" ng-click="update()">Update</button>
+			        		</div> -->
+			        		<div class="btn-wrap">
+								<button class="hvr-sweep-to-top btn join-free-btn" ng-click="cancel()">Cancel</button>
+								<button class="hvr-sweep-to-top btn join-free-btn submit-btn" ng-click="update()">Update</button>
+							</div>
+			        	</div>
+		        	</div>
+		       	</div>
+</div>

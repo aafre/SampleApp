@@ -1,0 +1,12 @@
+<div ng-include="'app/modules/dashboard/views/_header.html'"></div>
+<div ng-controller="viewQuotationCtrl">
+	Buyer Name: {{quoteObj.userName}}<br/>
+	Expected Delivery Date: {{quoteObj.expectedDeliveryDate}}<br/>
+	Establishment: {{quoteObj.userCompany}}<br/>
+	Tender No. {{quoteObj.tenderId}}<br/>
+	Quotation No. {{quoteObj.quotationId}}<br/>
+	Cut-off Date: {{quoteObj.toDate}}<br/>
+   <div ui-grid="gridOptions"></div>
+   <button ng-click="placeOrder()">Place Order</button>
+   <Button>Back</Button>
+</div>

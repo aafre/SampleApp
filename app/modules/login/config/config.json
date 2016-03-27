@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "login",
+            "cache"			: "false",
+            "url"           : "/login",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/login/views/login.html"   	
+        		}
+      		}
+	     }
+	]
+}

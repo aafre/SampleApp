@@ -1,0 +1,33 @@
+<div ng-controller="ResetCtrl">
+	   <form>
+                <div >
+                    <div>
+                        <h3>Forgot Your Password?</h3>
+                    </div>
+                    <div>
+                        <label>Please enter your Email</label>
+                        <input type="text" id="email" name="email" ng-model="email" />
+                    </div>
+                    <div>
+                        <button ng-click="showForm()">Reset</button>
+                    </div>
+                    <div>
+                        <a ui-sref="../../login/views/login.html">Back</a>
+                    </div>                    
+                </div>
+              
+              <div ng-show="otpValid">
+              <p>OTP: <input type="text"></p>
+			  <p>Password: <input type="password" ng-model="User.password"></p>
+			<p>Confirm Password: <input type="password"
+						ng-model="confirmPassword"></p>
+
+			<p><span ng-hide="User.password==confirmPassword">Passwords
+							do not match!</span></p>
+              
+              <p><input type="submit" value="Submit"></p>
+              </div>
+              
+              </form>
+              
+</div>

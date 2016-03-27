@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="icon" href="./images/profile_pic.jpg" type="image/jpg" sizes="30x30">
+<title> Restosource</title>
+</head>
+<link rel="stylesheet" href="css/ngDialog.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/anguComplete.css">
+<link rel="stylesheet" href="css/ui-grid.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/datepicker.css">
+<link rel="stylesheet" href="app/modules/register/css/register.css">
+<link rel="stylesheet" href="app/modules/tenders/css/tender.css">
+
+<body ng-app="restosource">
+<ui-view></ui-view>
+<!-- <h1>Welcome to Restosource!!</h1> -->
+
+<!-- <div ng-include="'app/core/views/header.html'"></div>
+<div ng-include="'app/core/views/leftPanel.html'"></div>
+ -->
+<!-- 
+</body>
+ -->
+
+
+<script src="js/angular.min.v1.4.7.js"></script>
+<script src="js/angular-ui-router.min.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script src="js/anguComplete.js"></script>
+<script src="js/angular-messages.min.js"></script>
+<script src="js/angular-touch.min.js"></script>
+<script src="js/angular-ui-grid.min.js"></script>
+<script src="js/angular-animate.js"></script>
+<!-- <script src="js/angular-file-upload.js"></script> -->
+<script src="js/ngDialog.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/ng-file-upload.js"></script>
+<script src="js/ng-file-upload-shim.js"></script>
+<!--Core Modules  -->
+<script src="app/core/app.js"></script>
+<script src="app/core/route.js"></script>
+<script src="app/core/controllers/MainCtrl.js"></script>
+<script src="app/core/constants/constants.js"></script>
+<script src="app/core/constants/routeConstant.js"></script>
+<script src="app/core/services/serverURLFactory.js"></script>
+<!-- <script src="app/core/services/registerModuleService.js"></script> -->
+<!-- <script src="app/core/services/moduleConfigurationService.js"></script> -->
+<script src="app/core/services/utilityService.js"></script>
+<script src="app/core/sessions/sessionModule.js"></script>
+<script src="app/core/sessions/sessionFactory.js"></script>
+
+<!-- Login Module -->
+<!-- <script src="app/modules/login/config/config.js"></script> -->
+<script src="app/modules/login/constants/constant.js"></script>
+<script src="app/modules/login/controllers/loginController.js"></script>
+<script src="app/modules/login/services/loginService.js"></script>
+
+
+<!-- Registration Module -->
+<!-- <script src="app/modules/register/config/config.js"></script> -->
+<script src="app/modules/register/constants/constant.js"></script>
+<script src="app/modules/register/controllers/registerController.js"></script>
+<script src="app/modules/register/services/registerService.js"></script>
+
+<!-- Reset Password Module -->
+<!-- <script src="app/modules/resetPassword/config/config.js"></script> -->
+<script src="app/modules/resetPassword/constants/constant.js"></script>
+<script src="app/modules/resetPassword/controllers/resetController.js"></script>
+<script src="app/modules/resetPassword/services/resetService.js"></script>
+
+<!-- Add Product Module -->
+<script src="app/modules/addProduct/controlllers/addProductController.js"></script>
+<script src="app/modules/addProduct/directive/addProduct.js"></script>
+
+
+
+<!-- User Profile Module -->
+<!-- <script src="app/modules/userProfile/config/config.js"></script> -->
+<script src="app/modules/userProfile/constants/constant.js"></script>
+<script src="app/modules/userProfile/controllers/userProfileController.js"></script>
+<script src="app/modules/userProfile/services/userProfileService.js"></script>
+
+
+<!-- Dashboard Module -->
+<!-- <script src="app/modules/dashboard/config/config.js"></script> -->
+<script src="app/modules/dashboard/constants/constant.js"></script>
+<!-- <script src="app/modules/dashboard/controllers/headerController.js"></script> -->
+<script src="app/modules/dashboard/controllers/dashboardController.js"></script>
+<script src="app/modules/dashboard/services/dashboardService.js"></script>
+
+
+<!-- Tender Module -->
+<!-- <script src="app/modules/tenders/config/config.js"></script> -->
+<script src="app/modules/tenders/constants/constant.js"></script>
+<script src="app/modules/tenders/controllers/tenderController.js"></script>
+<script src="app/modules/tenders/services/tenderService.js"></script>
+<script src="app/modules/tenders/controllers/viewTenderController.js"></script>
+<script src="app/modules/tenders/services/viewTenderService.js"></script>
+<script src="app/modules/tenders/controllers/viewTenderDetailController.js"></script>
+<script src="app/modules/tenders/services/viewTenderDetailService.js"></script>
+
+
+
+<!-- My Favourites Module -->
+<!-- <script src="app/modules/favourites/config/config.js"></script> -->
+<script src="app/modules/favourites/constants/constant.js"></script>
+<script src="app/modules/favourites/controllers/favouriteController.js"></script>
+<script src="app/modules/favourites/services/favouriteService.js"></script>
+
+ <!-- View Tender Detail -->
+<!-- <script src="app/modules/viewTenderItems/config/config.js"></script>
+<script src="app/modules/viewTenderItems/constants/constant.js"></script>
+<script src="app/modules/viewTenderItems/controllers/tenderDetailsController.js"></script>
+<script src="app/modules/viewTenderItems/services/tenderDetailService.js"></script>  -->
+
+<!-- Submit Quotation -->
+<!-- <script src="app/modules/quotation/config/config.js"></script> -->
+<script src="app/modules/quotation/constants/constant.js"></script>
+<script src="app/modules/quotation/controllers/submitQuotationController.js"></script>
+<script src="app/modules/quotation/services/submitQuotationService.js"></script>
+
+<!-- View Quotation -->
+<script src="app/modules/quotation/controllers/viewQuotationHeadersController.js"></script>
+<script src="app/modules/quotation/services/viewQuotationHeadersService.js"></script>
+<script src="app/modules/quotation/controllers/viewQuotationController.js"></script>
+<script src="app/modules/quotation/services/viewQuotationService.js"></script>
+
+<!-- Orders -->
+<script src="app/modules/orders/constants/constant.js"></script>
+<script src="app/modules/orders/controllers/orderController.js"></script>
+<script src="app/modules/orders/services/orderService.js"></script>
+<script src="app/modules/orders/controllers/viewOrderHeaderController.js"></script>
+<script src="app/modules/orders/services/viewOrderHeaderService.js"></script>
+<script src="app/modules/orders/services/viewOrderService.js"></script>
+<script src="app/modules/orders/controllers/viewOrderController.js"></script>
+
+</html>

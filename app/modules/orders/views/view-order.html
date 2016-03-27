@@ -1,0 +1,12 @@
+<div ng-include="'app/modules/dashboard/views/_header.html'"></div>
+<div ng-controller="ViewOrderCtrl">
+	Vendor Name: {{headerBO.userName}}<br/>
+	Mobile : {{headerBO.userContactNo}}
+	Expected Delivery Date: {{headerBO.expectedDeliveryDate}}<br/>
+	Establishment: {{headerBO.userCompany}}<br/>
+	Order No. {{headerBO.orderId}}<br/>
+	Tender Name {{headerBO.quotationId}}<br/>
+<!-- 	Tender No. {{headerBO.tenderId}} -->
+	Quotation No. {{headerBO.sourceId}}
+   <div ui-grid="gridOptions"></div>
+</div>

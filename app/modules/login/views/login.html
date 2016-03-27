@@ -1,0 +1,64 @@
+	<!-- Button trigger modal -->
+	<button class="login-stl" data-toggle="modal" data-target="#contact">Login</button>
+<div ng-controller="LoginCtrl">
+	<!--Dialog referred as by it id -->
+	<div class="modal fade" id="contact" role="dialog" aria-hidden="true">
+		<div class="modal-dialog parent-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" ng-click="clearData()" aria-hidden="true">&times;</button>
+					<div align="center">
+							<span class="chef-title"><i class="sub-title-style">Chef</i>ezy</span>							
+					</div>
+				</div>
+				<div class="modal-body">
+					<form  name="form" class="form-horizontal" class="form-group" ng-submit="login()">	
+					        <fieldset>
+					            <div class="control-group" align="center">
+					              <div class="controls">
+										<input type="text" name="name" class="form-control input_field" placeholder="Username/Email" autocomplete="off" ng-model="user.eMailId" ng-minlength="5" required />
+					              </div>
+					              <div class="row">
+										<ng-messages ng-if="form.name.$dirty" for="form.name.$error">
+					      						<ng-message when="minlength"><span class="alert-msg">*</span><span class="alert-txt-sty">Too small!</span></ng-message>
+					      						<ng-message when="required"><span class="alert-msg">*</span><span class="alert-txt-sty">Username is Required!</span></ng-message>
+							       		</ng-messages>
+					 			  </div>
+					            </div>
+					
+					            <div class="control-group" align="center">
+				              		<div class="controls">
+				           				 <input type="password" class="form-control input_field" placeholder="Password" name="password" autocomplete="off" ng-model="user.userPassword" required="required">
+				            	 	 </div>
+				           			 <div class="row">
+										 <ng-messages ng-if="form.password.$dirty" for="form.password.$error">
+				        						<ng-message when="required"><span class="alert-msg">*</span><span class="alert-txt-sty">Password is Required!</span></ng-message>
+				        				</ng-messages>
+					        		</div> 
+					            </div>
+								<div class="forgot-password" align="center"  >
+									<a ui-sref="reset" class="forgot-pass-color">Forgot Password</a><span class="question_mark">?</span>
+								</div>
+					            <div class="control-group" align="center">
+						              <div class="controls">
+					              		  <div class="login-bottom">
+											<button type="submit" id="submit" ng-disabled="form.name.$dirty && form.name.$invalid || form.password.$dirty && form.password.$invalid" 
+											class="hvr-sweep-to-top btn-style" value="Login" >Login</button>
+										 </div>
+						              </div>
+					            </div> 
+					        		 <hr class="or-connect" />
+									<div class="or-style">OR</div>
+									<hr class="or-connect" />
+					        </fieldset>
+					</form>
+			</div>
+			<div class="modal-footer footer-border">
+				<div align="center">
+					<button ng-click="gotoRegister()" class="hvr-sweep-to-top btn login-btn-style">Register</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>  
+</div> 

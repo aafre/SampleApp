@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "reset",
+            "cache"			: "false",
+            "url"           : "/reset",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/resetPassword/views/reset.html"   	
+        		}
+      		}
+	     }
+	]
+}

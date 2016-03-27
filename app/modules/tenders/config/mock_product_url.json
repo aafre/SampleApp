@@ -1,0 +1,12 @@
+[
+    {
+      "productId": 3,
+      "productName": "Xiomi",
+      "productCategory": "Phone"
+    },
+    {
+      "productId": 4,
+      "productName": "Nokia",
+      "productCategory": "Phone"
+    }
+  ]

@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "tender",
+            "cache"			: "false",
+            "url"           : "/tender",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/tenders/views/tender.html"   	
+        		}
+      		}
+	     }
+	]
+}

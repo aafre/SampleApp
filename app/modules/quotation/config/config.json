@@ -1,0 +1,16 @@
+{
+	"moduleType" : "public",
+    "routes" : [
+		{
+            "parentState"   : "modules",
+            "state"         : "submitquotation",
+            "cache"			: "false",
+            "url"           : "/submit-quotation",
+            "views": {
+        		"content" :{
+       					"templateUrl"   : "app/modules/createQuotation/views/submit-quotation.html"   	
+        		}
+      		}
+	     }
+	]
+}

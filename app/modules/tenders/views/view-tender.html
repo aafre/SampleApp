@@ -1,0 +1,18 @@
+	<div class="container-fluid"  ng-controller="ViewTenderCtrl">	
+		<div ng-include="'app/modules/dashboard/views/_header.html'" ></div>
+		<div class="row tender-row">
+			<div class="tender-box">
+				<span>View Tender</span>	
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div ng-controller="ViewTenderCtrl">
+					<div ng-show="noData"> No Tenders To retrieve. 
+						<button ng-click="goTo('tenders')">Go Back </button>
+					</div>
+	   			 <div ng-show="!noData" ui-grid="gridOptions"></div>
+			   </div>
+		   </div>
+		</div>
+	</div>
